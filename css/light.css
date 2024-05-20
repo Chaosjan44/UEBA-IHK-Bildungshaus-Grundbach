@@ -1,0 +1,83 @@
+:root {
+    --theme-color-background: #fff;
+    --theme-color-primary: #036;
+    --theme-color-primary-rgb: 0, 51, 102;
+    --theme-color-primary-dimmed-01: #335c85;
+    --theme-color-primary-dimmed-02: #b0c4d6;
+    --theme-color-primary-dimmed-03: #ccd7e6;
+    --theme-color-primary-dimmed-04: #e3ebf5;
+}
+
+
+* {
+    color: var(--theme-color-primary);
+}
+
+html, body {
+    background-color: var(--theme-color-background) !important;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+button {
+    color: var(--theme-color-primary-dimmed-02) !important;
+}
+
+.navbar-icon_light {
+    display: inline-block;
+    height: 50px;
+}
+
+.navbar-icon_dark {
+    display: none;
+    height: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar-icon_light {
+        display: inline-block;
+        height: 70px;
+    }
+
+    .navbar-icon_dark {
+        display: none;
+        height: 70px;
+    }
+}
+
+
+
+.footer {
+    background-color: var(--theme-color-primary-dimmed-04);
+}
+
+.cbg {
+    background-color: var(--theme-color-background) !important;
+}
+
+.cbg1 {
+    background-color: var(--theme-color-primary-dimmed-01) !important;
+}
+
+.cbg2 {
+    background-color: var(--theme-color-primary-dimmed-02) !important;
+}
+
+.cbg3 {
+    background-color: var(--theme-color-primary-dimmed-03) !important;
+}
+
+.cbg4 {
+    background-color: var(--theme-color-primary-dimmed-04) !important;
+}
+
+.navv {
+    background-color: var(--theme-color-primary-dimmed-04) !important;
+}
+
+.navbar-toggler {
+    background-color: var(--theme-color-secondary) !important;
+} 

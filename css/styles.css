@@ -1,0 +1,189 @@
+/* Korb - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Korb';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/korb.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+         url('fonts/korb.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+  }
+
+/* remove scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: "Korb";
+    font-size: medium;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 400;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul.dots {
+    list-style-type: disc;   
+}
+
+li.second {
+    color: var(--theme-color-secondary) !important;;
+}
+
+
+.ctext,
+.st111 {
+    color: var(--theme-color-primary) !important;
+    fill: var(--theme-color-primary) !important;
+}
+
+
+
+.hoverlink {
+    color: var(--theme-color-primary) !important;
+}
+
+.hoverlink:hover {
+    transition: 0.5s;
+    color: var(--theme-color-secondary) !important;
+}
+
+.clink {
+    color: var(--theme-color-primary) !important;
+}
+
+.slink {
+    color: var(--theme-color-secondary) !important;
+}
+
+
+
+
+
+:root {
+    --theme-color-white: #fff;
+    --theme-color-secondary: #56bd66;
+    --theme-color-secondary-intensed: #2e8533;
+    --theme-color-secondary-dimmed: #e4f1e4;
+    --theme-color-gradient-01: var(--theme-color-primary);
+    --theme-color-gradient-02: #4ba490;
+    --theme-color-gradient-03: #afcc7a;
+    --theme-color-link: var(--theme-color-primary);
+    --theme-color-link-hover: var(--theme-color-secondary-intensed);
+    --theme-color-success: var(--theme-color-secondary);
+    --theme-color-success-dimmed: var(--theme-color-secondary-dimmed);
+    --theme-color-warning: #fdc600;
+    --theme-color-warning-dimmed: #fff4cc;
+    --theme-color-error: #ea515a;
+    --theme-color-error-dimmed: #fbdcde;
+    --theme-grey-light: #eff3f6;
+}
+
+.btn:focus
+.btn:active
+.btn:active:focus {
+    box-shadow: var(--theme-color-secondary-intensed) !important;
+}
+
+
+.header-line {
+    width: 100%;
+    background-color: var(--theme-color-secondary);
+    padding: 0;
+    margin: 0;
+}
+
+
+.text-size-xx-small {
+    font-size: xx-small !important;
+}
+
+.text-size-x-small {
+    font-size: x-small !important;
+}
+
+.text-size-smaller {
+    font-size: smaller !important;
+}
+
+.text-size-small {
+    font-size: small !important;
+}
+
+.text-size-medium {
+    font-size: medium !important;
+}
+
+.text-size-large {
+    font-size: large !important;
+}
+
+.text-size-larger {
+    font-size: larger !important;
+}
+
+.text-size-x-large {
+    font-size: x-large !important;
+}
+
+.text-size-xx-large {
+    font-size: xx-large !important;
+}
+
+
+
+
+
+/* Light/Dark mode Switch */
+.styleswitcher {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.styleswitcherlabel {
+    display: block;
+    width: 70px;
+    height: 30px;
+    background-color: #EDEDED;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 0 2px #000000;
+}
+
+.styleswitcherlabel::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    border-radius: 5px;
+    top: 3px;
+    left: 5px;
+    transition: 0.5s;
+    background-image: url("/images/light.png");
+    background-size: 24px;
+}
+
+.styleswitcher:checked + .styleswitcherlabel:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+    background-image: url("/images/dark.png");
+    background-size: 24px;
+}
+
+.styleswitcher:checked + .styleswitcherlabel {
+    background-color: #212529;
+    box-shadow: 0 0 2px #ffffff;
+}
