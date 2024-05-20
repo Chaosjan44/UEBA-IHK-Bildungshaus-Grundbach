@@ -130,7 +130,7 @@ function check_style() {
 			return 'light';
 		}
 	} else {
-		return 'dark';
+		return 'light';
 	}
 }
 
@@ -143,14 +143,6 @@ function check_cookie() {
 	}
 }
 
-function check_kjonstruction_cookie() {
-	// return true; // Remove this line to get the KJonstruction modal back
-	if(isset($_COOKIE['acceptKJonstruction'])) {
-		return true;
-	} else {
-		return false;
-	}
-}
 
 function generateRandomString($length) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -161,9 +153,6 @@ function generateRandomString($length) {
     }
     return $randomString;
 }
-
-// $dateMMM = new IntlDateFormatter('de_DE', IntlDateFormatter::FULL, IntlDateFormatter::NONE, pattern:'MMM');
-// $datedd = new IntlDateFormatter('de_DE', IntlDateFormatter::FULL, IntlDateFormatter::NONE, pattern:'dd');
 
 function convertToWEBP($file, $compression_quality = 40)
 {
@@ -221,37 +210,4 @@ function convertToWEBP($file, $compression_quality = 40)
     }
     return false;
 }
-
-function delRoomImgs($images) {
-	global $pdo;
-	foreach ($images as $image) {
-		unlink(substr($image['solution_pic_path'], 1));
-		unlink(substr($image['solution_pic_path'] . ".webp", 1));
-		$stmt = $pdo->prepare('DELETE FROM solution_pics where solution_pic_id = ?');
-        $stmt->bindValue(1, $image['solution_pic_id'], PDO::PARAM_INT);
-        $result = $stmt->execute();
-        if (!$result) {
-            error('Datenbank Fehler!', pdo_debugStrParams($stmt));
-        }
-	}
-}
-
-function delRoom($room_id) {
-	global $pdo;
-	$stmt = $pdo->prepare('DELETE FROM rooms where room_id = ?');
-	$stmt->bindValue(1, $room_id, PDO::PARAM_INT);
-	$result = $stmt->execute();
-	if (!$result) {
-		error('Datenbank Fehler!', pdo_debugStrParams($stmt));
-	}   
-	print("<script>location.href='rooms.php'</script>");
-}
-
-
-
-
-
-
-
-
 ?>

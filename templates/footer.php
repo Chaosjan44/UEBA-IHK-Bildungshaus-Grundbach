@@ -85,7 +85,7 @@ $crdate = "2024";
                 <div class="row justify-content-between align-items-center">
                     <div class="col-4 ctext text-start light ps-0"><a href="/admin/admin.php" class="ctext light">&copy; <?=$crdate?><br>Jan Schniebs & Robert Cellary</a></div>
                     <div class="col-4 d-flex justify-content-end">
-                        <input onchange="toggleStyle()" class="styleswitcher" type="checkbox" name="switch" id="style_switch" <?php if (check_style() != "light"): print("checked"); endif; ?> >
+                        <input onchange="toggleStyle()" class="styleswitcher" type="checkbox" name="switch" id="style_switch" <?php if (check_style() == "dark"): print("checked"); endif; ?> >
                         <label class="styleswitcherlabel" for="style_switch"></label>
                     </div>
                 </div>

@@ -92,8 +92,8 @@ CREATE TABLE `teachers` (
   `tel` varchar(40),
   `pronouns` varchar(16),
   `path_to_pic` varchar(64),
-  `notes` mediumtext
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+  `notes` mediumtext,
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 );
 
 CREATE TABLE `rooms` (

@@ -68,8 +68,6 @@ li.second {
 
 
 
-
-
 :root {
     --theme-color-white: #fff;
     --theme-color-secondary: #56bd66;
@@ -87,6 +85,11 @@ li.second {
     --theme-color-error: #ea515a;
     --theme-color-error-dimmed: #fbdcde;
     --theme-grey-light: #eff3f6;
+    --focus-ring-width: .25rem;
+    --focus-ring-opacity: .25;
+    --focus-ring-color: rgba(var(--theme-color-secondary), var(--focus-ring-opacity)) !important;
+    --focus-ring-blur: 0;
+    --focus-ring-box-shadow: 0 0 var(--focus-ring-blur) var(--focus-ring-width) var(--focus-ring-color) !important;
 }
 
 .btn:focus
@@ -139,7 +142,6 @@ li.second {
 .text-size-xx-large {
     font-size: xx-large !important;
 }
-
 
 
 
