@@ -41,7 +41,8 @@ $crdate = "2024";
             </div>
         </div>
         <div class="row justify-content-end align-items-center">
-            <div class="col-4 text-center ctext light"><a href="/admin/admin.php" class="text-center ctext light">&copy; <?=$crdate?> Jan Schniebs & Robert Cellary</a></div>
+            <div class="col-4 text-start"><a href="https://github.com/Chaosjan44/UEBA-IHK-Bildungshaus-Grundbach" target="#" class="me-2"><i class="bi ctext text-size-x-large bi-github"></i></a></div>
+            <div class="col-4 text-center ctext light"><a href="/internal/internal.php" class="text-center ctext light">&copy; <?=$crdate?> Jan Schniebs & Robert Cellary</a></div>
             <div class="col-4 d-flex justify-content-end">
                 <input onchange="toggleStyle()" class="styleswitcher" type="checkbox" name="switch" id="style_switch" <?php if (check_style() == "dark"): print("checked"); endif; ?> >
                 <label class="styleswitcherlabel" for="style_switch"></label>
@@ -83,7 +84,8 @@ $crdate = "2024";
                     </ul>
                 </div>
                 <div class="row justify-content-between align-items-center">
-                    <div class="col-4 ctext text-start light ps-0"><a href="/admin/admin.php" class="ctext light">&copy; <?=$crdate?><br>Jan Schniebs & Robert Cellary</a></div>
+                    <div class="col-4 text-start"><a href="https://github.com/Chaosjan44/UEBA-IHK-Bildungshaus-Grundbach" target="#" class="me-2"><i class="bi ctext text-size-x-large bi-github"></i></a></div>
+                    <div class="col-4 ctext text-start light ps-0"><a href="/internal/internal.php" class="ctext light">&copy; <?=$crdate?><br>Jan Schniebs & Robert Cellary</a></div>
                     <div class="col-4 d-flex justify-content-end">
                         <input onchange="toggleStyle()" class="styleswitcher" type="checkbox" name="switch" id="style_switch" <?php if (check_style() == "dark"): print("checked"); endif; ?> >
                         <label class="styleswitcherlabel" for="style_switch"></label>
