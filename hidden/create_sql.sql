@@ -5,6 +5,8 @@ CREATE TABLE `users` (
   `firstname` varchar(40) NOT NULL,
   `surname` varchar(40) NOT NULL,
   `email` varchar(128) NOT NULL,
+  `teacher` tinyint(1) NOT NULL DEFAULT 0,
+  `student` tinyint(1) NOT NULL DEFAULT 1,
   `perm_login` tinyint(1) NOT NULL DEFAULT 0,
   `perm_admin` tinyint(1) NOT NULL DEFAULT 0,
   `perm_edit_courses` tinyint(1) NOT NULL DEFAULT 0,
@@ -17,7 +19,7 @@ CREATE TABLE `securitytokens` (
   `user_id` int(5),
   `identifier` varchar(255),
   `securitytoken` varchar(255),
-  `created_at` timestamp,
+  `created_at` timestamp DEFAULT current_timestamp(),
   FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 );
 
@@ -54,9 +56,6 @@ CREATE TABLE `students` (
   `company_id` int(5),
   `instructor_id` int(5),
   `job_id` int(5),
-  `firstname` varchar(40),
-  `surname` varchar(40),
-  `email` varchar(128),
   `tel` varchar(40),
   `birthday` datetime,
   `pronouns` varchar(16),
@@ -86,9 +85,6 @@ CREATE TABLE `student_courses` (
 CREATE TABLE `teachers` (
   `teacher_id` int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user_id` int(5),
-  `firstname` varchar(40),
-  `surname` varchar(40),
-  `email` varchar(128),
   `tel` varchar(40),
   `pronouns` varchar(16),
   `path_to_pic` varchar(64),
