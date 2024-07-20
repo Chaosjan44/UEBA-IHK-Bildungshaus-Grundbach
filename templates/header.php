@@ -23,24 +23,27 @@ require_once("templates/imports.php");
                 <ul class="navbar-nav me-auto mb-lg-0">
                     <?php if(isset($user) && $user != null):?>
                         <li class="nav-item text-size-x-large mx-1">
-                            <a class="nav-link clink" aria-current="page" href="/overview.php">Alle Häuser</a>
+                            <a class="nav-link clink" href="/internal/internal.php">Intern</a>
                         </li>
                     <?php endif;?>
                 </ul>
                 <ul class="navbar-nav mb-lg-0">
-                    <?php if(isset($user) && $user != null):?>
-                        <li class="nav-item text-size-x-large mx-1">
-                            <a class="nav-link clink" href="/settings.php">Einstellungen</a>
-                        </li>
-                    <?php endif;?>
                     <?php if(!isset($user) || $user == null):?>
                         <li class="nav-item text-size-x-large mx-1">
                             <a class="nav-link clink" href="/login.php">Anmelden</a>
                         </li>
                     <?php else:?>
-                        <li class="nav-item text-size-x-large mx-1">
-                            <a class="nav-link clink clink" href="/logout.php">Abmelden</a>
-                        </li>
+                        <div class="d-flex">
+                            <div class="dropdown me-1">
+                                <a class="dropdown-toggle nav-item ctext text-size-x-large" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-fill text-size-xx-large"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end nav-item">
+                                    <li><a class="nav-link clink text-size-x-large" href="/internal/settings.php">Einstellungen</a></li>
+                                    <li><a class="nav-link clink text-size-x-large" href="/logout.php">Abmelden</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     <?php endif;?>
                 </ul>
             </div>
