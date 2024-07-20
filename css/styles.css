@@ -87,7 +87,7 @@ li.second {
     --theme-grey-light: #eff3f6;
     --focus-ring-width: .25rem;
     --focus-ring-opacity: .25;
-    --focus-ring-color: rgba(var(--theme-color-secondary), var(--focus-ring-opacity)) !important;
+    --focus-ring-color: rgba(86, 189, 102, var(--focus-ring-opacity)) !important;
     --focus-ring-blur: 0;
     --focus-ring-box-shadow: 0 0 var(--focus-ring-blur) var(--focus-ring-width) var(--focus-ring-color) !important;
 }
@@ -188,4 +188,20 @@ li.second {
 .styleswitcher:checked + .styleswitcherlabel {
     background-color: #212529;
     box-shadow: 0 0 2px #ffffff;
+}
+
+/* Checkbox in secondary */
+.checkbox-secondary:checked {
+    background-color: var(--theme-color-secondary) !important;
+    border-color: var(--theme-color-secondary-intensed) !important;
+}
+
+.checkbox-secondary:focus+.checkbox-secondary,.checkbox-secondary:focus {
+    border-color: var(--theme-color-secondary-intensed) !important;
+    box-shadow: var(--focus-ring-box-shadow) !important;
+}
+
+.checkbox-secondary:active+.checkbox-secondary:focus,.checkbox-secondary:checked+.checkbox-secondary:focus,.checkbox-secondary.active:focus,.checkbox-secondary:active:focus,.show>.checkbox-secondary.dropdown-toggle:focus {
+    border-color: var(--theme-color-secondary-intensed) !important;
+    box-shadow: var(--focus-ring-box-shadow) !important;
 }

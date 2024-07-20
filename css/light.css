@@ -10,7 +10,7 @@
 
 
 * {
-    color: var(--theme-color-primary);
+    color: var(--theme-color-primary) !important;
 }
 
 html, body {
