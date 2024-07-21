@@ -1,6 +1,54 @@
 <?php
 require_once("php/mysql.php");
 
+function get_user($pdo, $userid) {
+	$stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = ?");
+	$stmt->bindValue(1, $userid, PDO::PARAM_INT);
+	$result = $stmt->execute();
+	if (!$result) {
+		error_log("Error while pulling user with id: " + $userid + " from Database");
+	}
+	$user = $stmt->fetch();
+	if ($user['teacher']) {
+		$stmt = $pdo->prepare("SELECT * FROM teachers WHERE user_id = ?");
+		$stmt->bindValue(1, $userid, PDO::PARAM_INT);
+		$result1 = $stmt->execute();
+		if (!$result1) {
+			error_log("Error while pulling teacher with user_id: " + $userid + " from Database");
+		}
+		$teacher = $stmt->fetch();
+
+		$user['tel'] = $teacher['tel'];
+		$user['birthday'] = $teacher['birthday'];
+		$user['pronouns'] = $teacher['pronouns'];
+		$user['path_to_pic'] = $teacher['path_to_pic'];
+		$user['notes'] = $teacher['notes'];
+	} elseif ($user['students']) {
+		$stmt = $pdo->prepare("SELECT * FROM students WHERE user_id = ?");
+		$stmt->bindValue(1, $userid, PDO::PARAM_INT);
+		$result2 = $stmt->execute();
+		if (!$result2) {
+			error_log("Error while pulling student with user_id: " + $userid + " from Database");
+		}
+		$student = $stmt->fetch();
+
+		$user['company_id'] = $student['company_id'];
+		$user['instructor_id'] = $student['instructor_id'];
+		$user['job_id'] = $student['job_id'];
+		$user['tel'] = $student['tel'];
+		$user['birthday'] = $student['birthday'];
+		$user['pronouns'] = $student['pronouns'];
+		$user['path_to_pic'] = $student['path_to_pic'];
+		$user['notes'] = $student['notes'];
+	}
+
+
+
+
+
+	return $user;
+}
+
 function check_user() {
 	global $pdo;
 	if (isset($_SESSION['userid']) && isset($_COOKIE['identifier']) && isset($_COOKIE['securitytoken'])) {
@@ -22,14 +70,7 @@ function check_user() {
 		} if(!isset($_SESSION['userid'])) {
 			return FALSE;
 		} else {
-			$stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = ?");
-			$stmt->bindValue(1, $_SESSION['userid'], PDO::PARAM_INT);
-			$result = $stmt->execute();
-			if (!$result) {
-				error_log("Error while pulling user with id: " + $_SESSION['userid'] + " from Database");
-			}
-			$user = $stmt->fetch();
-			return $user;
+			return(get_user($pdo, $_SESSION['userid']));
 		}
 	} elseif(!isset($_SESSION['userid']) && isset($_COOKIE['identifier']) && isset($_COOKIE['securitytoken'])) {
 		$identifier = $_COOKIE['identifier'];
@@ -65,14 +106,7 @@ function check_user() {
 		if(!isset($_SESSION['userid'])) {
 			return FALSE;
 		} else {
-			$stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = ?");
-			$stmt->bindValue(1, $_SESSION['userid'], PDO::PARAM_INT);
-			$result = $stmt->execute();
-			if (!$result) {
-				error_log("Error while pulling user with id: " + $_SESSION['userid'] + " from Database");
-			} 
-			$user = $stmt->fetch();
-			return $user;
+			return(get_user($pdo, $_SESSION['userid']));
 		}
 	} else {
 		return FALSE;
